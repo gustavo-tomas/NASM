@@ -6,7 +6,10 @@
 
 %endmacro
 
-%macro 
+%macro ENDSWITCH 0
+
+
+
 %endmacro
 
 ; compara o valor de uma variável com o valor em bx(base register)
@@ -17,8 +20,10 @@
 
 %endmacro
 
+
 %macro DEFAULT 0
 %endmacro
+
 
 %macro BREAK 0
 %endmacro
@@ -31,3 +36,4 @@ _start:
 %macro SWITCH 1
 
 %endmacro    
+

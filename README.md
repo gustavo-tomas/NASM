@@ -18,7 +18,7 @@ gdb ./prog --tui
 ```
 Esse comando irá utilizar uma interface de terminal (flag `--tui`). Os breakpoints podem ser definidos por 
 ```
-break linha
+break <linha>
 ```
 E o programa executado com 
 ```
