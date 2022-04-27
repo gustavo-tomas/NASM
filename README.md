@@ -1,38 +1,41 @@
 ## Instalando o GDB
-Para instalar o GDB, basta usar
+Para instalar o GDB em distribuições Debian/Ubuntu:
 ```
 sudo apt-get install gdb
 ```
 
 ## Debug utilizando o GDB
-__ATENÇÃO__ não utilizar a flag `-s` ("strip" vai atrapalhar o funcionamento do gdb).
+> *ATENÇÃO:* não utilizar a flag `-s` caso esteja linkando usando `ld` ("strip" vai atrapalhar o funcionamento do gdb).
 
-Compilar o programa com os comandos:
+Criar o executável do programa:
 ```
-nasm -g -F dwarf -f elf64 prog.asm
-ld -o prog prog.o
+nasm -g -f elf64 prog.asm
+ld -o prog prog.o     # ou gcc -o prog prog.o 
 ```
-Em seguida, rodar o gdb:
+Após compilar o programa em Assembly, rode o GDB:
 ```
 gdb ./prog --tui
 ```
-Esse comando irá utilizar uma interface de terminal (flag `--tui`). Os breakpoints podem ser definidos por 
+Esse comando irá utilizar uma interface de terminal (flag `--tui`). Os breakpoints podem ser definidos usando o comando `break` ou `b`. Para criar um breakpoint em uma linha ou em uma label do seu programa, use o seguinte comando:
 ```
-break <linha>
+break <linha>   # ou break <nome-da-label> 
 ```
-E o programa executado com 
+Após definição dos breakpoints, rode o programa: 
 ```
 run
 ```
-Para visualizar os registradores, basta usar
+É importante lembrar que é possível criar breakpoints a qualquer momento da execução do programa.
+Para visualizar os registradores, basta usar o comando:
 ```
 layout regs
 ```
-Para avançar um passo, usar 
+Para executar a próxima linha durante a execução do debugger, use o comando `step`: 
 ```
-step
+step  # ou s
 ```
-Para executar o restante do código, usar
+Caso deseje avançar até o próximo breakpoint (ou até o fim da execução, caso não hajam mais breakpoints), use o comando a seguir:
 ```
-continue
+continue  # ou c
 ```
+Por fim, para terminar a execução do debugger, use o comando `quit` ou `q`.
+Para mais detalhes do funcionamento do debugger GDB, consulte o [manual do programa](http://www.gnu.org/software/gdb/documentation/) `man gdb` e utilize o comando `help` durante a execução.
