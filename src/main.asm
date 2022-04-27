@@ -1,14 +1,27 @@
-section     .data
-msg     db  'Hello world',0xa  
-len     equ $ - msg   
+; eax = nao
+; esp = stack pointer
 
-section     .text
-global      _start 
-_start: 
-    mov     edx,len   
-    mov     ecx,msg   
-    mov     ebx,1   
-    mov     eax,4   
-    int     0x80   
-    mov     eax,1  
-    int     0x80   
+section .text
+global main
+extern printf, exit ; interface com C
+
+main:
+
+; contador
+mov ebx, 0          ; inicializa contador com 0
+
+_loop:
+    add ebx, 1      ; incrementa contador
+    push ebx        ; carrega o contexto do contador
+    push message    ; carrega o contexto da mensagem
+    call printf     ; chama print do C
+    add esp, 8      ; restaura o stack pointer
+    cmp ebx, 20     ; compara contador com N
+    jnz _loop       ; retorna ao loop se for diferente
+    jmp _exit       ; encerra se for igual
+
+_exit:
+    call exit       ; encerra o programa
+
+section .data
+message db "Valor = %d", 10, 0    ; imprime com quebra de linha (10) e terminador (0)
