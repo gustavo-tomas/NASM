@@ -1,6 +1,6 @@
 NASM=nasm
 DEBUGF=-g
-TARGET=main
+TARGET=switch
 RUN=run
 DEBUG=debug
 BUILD=./build
