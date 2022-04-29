@@ -5,6 +5,7 @@
 
 %endmacro
 
+;
 %macro ENDSWITCH 0
 
     endswitch:

@@ -1,3 +1,8 @@
+# NASM
+Repositório de duas tarefas:
+- Exemplificar o uso do debugger GDB
+- Simular o comando `switch` usando macros
+
 ## Instalando o GDB
 Para instalar o GDB em distribuições Debian/Ubuntu:
 ```
@@ -24,11 +29,6 @@ Após definição dos breakpoints, rode o programa:
 ```
 run
 ```
-É importante lembrar que é possível criar breakpoints a qualquer momento da execução do programa.
-Para visualizar os registradores, basta usar o comando:
-```
-layout regs
-```
 Para executar a próxima linha durante a execução do debugger, use o comando `step`: 
 ```
 step  # ou s
@@ -37,5 +37,28 @@ Caso deseje avançar até o próximo breakpoint (ou até o fim da execução, ca
 ```
 continue  # ou c
 ```
+
+### Conteúdo dos registradores
+É importante lembrar que é possível criar breakpoints a qualquer momento da execução do programa.
+Para visualizar os registradores, basta usar o comando:
+```
+layout regs
+```
+
+### Conteúdo da memória
+Para ver o conteúdo da memória é um pouco mais complexo. Primeiro, é preciso listar as variáveis definidas:
+```
+i var
+```
+Em seguida, é preciso usar o comando `x` com os parâmetros do tamanho e do tipo de dado na forma:
+```
+x/<tam><tipo> &<var>  # ou &<endereço>
+```
+Então, para ver o conteúdo da variável `so_memeto_emencrenca` (que fica no endereço 0x2000, por exemplo) no formato de 4 bytes:
+```
+x/4b &so_memeto_emencrenca  # ou &0x2000
+```
+
+### Encerrar o GDB
 Por fim, para terminar a execução do debugger, use o comando `quit` ou `q`.
 Para mais detalhes do funcionamento do debugger GDB, consulte o [manual do programa](http://www.gnu.org/software/gdb/documentation/) `man gdb` e utilize o comando `help` durante a execução.
