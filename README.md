@@ -68,7 +68,8 @@ Existem dois arquivos na pasta `src`: um para visualizar o funcionamento do gdb,
 
 - Para compilar o arquivo de debug, usar ``` make debug ```
 - Para compilar o arquivo do switch, usar ``` make ```
+- Para remover os arquivos gerados pela compilação, use o comando `make clean`.
 
 Depois, basta rodar o executável com `./run`.
 
-Para remover os arquivos gerados pela compilação, use o comando `make clean`.
+
