@@ -62,3 +62,11 @@ x/4b &so_memeto_emencrenca  # ou &0x2000
 ### Encerrar o GDB
 Por fim, para terminar a execução do debugger, use o comando `quit` ou `q`.
 Para mais detalhes do funcionamento do debugger GDB, consulte o [manual do programa](http://www.gnu.org/software/gdb/documentation/) `man gdb` e utilize o comando `help` durante a execução.
+
+## Compilando os arquivos
+Existem dois arquivos na pasta `src`: um para visualizar o funcionamento do gdb, chamado de `gdb_debug.asm` e outro para testar o switch, chamado de `switch.asm`.
+
+- Para compilar o arquivo de debug, usar ``` make debug ```
+- Para compilar o arquivo do switch, usar ``` make ```
+
+Depois, basta rodar o executável com `./run`.
