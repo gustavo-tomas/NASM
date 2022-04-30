@@ -1,0 +1,9 @@
+make:
+	mkdir build 
+	nasm -f win32 src/switch.asm -o build/switch.o && gcc -o run build/switch.o
+
+debug:
+	mkdir build
+	nasm -g -f win32 src/gdb_debug.asm -o build/gdb_debug.o && gcc -o run build/gdb_debug.o
+
+

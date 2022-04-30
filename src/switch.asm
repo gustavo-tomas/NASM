@@ -67,25 +67,25 @@
 %macro print 1
     push dword %1   ; Push na stack com o valor armazenado no registrador passado como argumento 
     push message    ; Push na stack da mensagem declarada na secao de dados
-    call printf     ; Chama funcao printf C
+    call _printf     ; Chama funcao printf C
     add esp, 8      ; Reinicia ponteiro para a stack
 %endmacro
 
 %macro print_not_found 0
     push not_found  ; Push na stack da mensagem de erro declarada na secao de dados
-    call printf     ; Chama funcao printf C
+    call _printf     ; Chama funcao printf C
     add esp, 4      ; Reinicia o ponteiro para a stack
 %endmacro
 
-extern printf, exit
-global  main
+extern _printf, _exit
+global  _WinMain@16
 
 section .data
 message db "Match: %d", 10, 0  ;10,  mensagem a ser mostrada no case
 not_found db "Sem match - O numero e par", 10, 0
 section .text
 
-main:
+_WinMain@16:
 
 mov ebx, -1  ; Inicializa o contador
 loop:
@@ -120,4 +120,4 @@ loop:
     cmp ebx, 10     ; Compara contador com N
     jne loop        ; Goto label loop caso a comparacao nao de certo
 
-call exit
+call _exit
