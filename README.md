@@ -20,7 +20,7 @@ Além dos aquivos citados acima, exitem os arquivos `gdb_debug_win.asm` e `switc
 - Para compilar o arquivo do switch, usar ``` make -f makefile.win ```
 - Para remover os arquivos gerados pela compilação, use o comando `make clean -f makefile.win`.
 
-Depois, basta rodar o executável com `./run`.
+Depois, basta rodar o executável com `run`.
 
 ## Instalando o GDB
 Para instalar o GDB em distribuições Debian/Ubuntu:
