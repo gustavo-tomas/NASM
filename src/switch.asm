@@ -27,7 +27,7 @@
 ; ENDSWITCH
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; O switch verifica se algum case casa com o valor do registrador "ecx".   ;
+; O switch verifica se algum case casa com o valor do registrador "ebx".   ;
 ; Se for bem sucedido, executa o codigo do case e depois encerra o switch. ;
 ; Caso contrario, executa o codigo no caso default e depois encerra.       ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -78,7 +78,7 @@
 %endmacro
 
 extern printf, exit
-global  main
+global main
 
 section .data
 message db "Match: %d", 10, 0  ;10,  mensagem a ser mostrada no case

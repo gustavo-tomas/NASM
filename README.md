@@ -3,6 +3,23 @@ Repositório de duas tarefas:
 - Exemplificar o uso do debugger GDB
 - Simular o comando `switch` usando macros
 
+## Compilando os arquivos
+### Linux
+Existem dois arquivos na pasta `src`: um para visualizar o funcionamento do gdb, chamado de `gdb_debug.asm` e outro para testar o switch, chamado de `switch.asm`.
+
+- Para compilar o arquivo de debug, usar ``` make debug ```
+- Para compilar o arquivo do switch, usar ``` make ```
+- Para remover os arquivos gerados pela compilação, use o comando `make clean`.
+
+Depois, basta rodar o executável com `./run`.
+
+### Windows
+Além dos aquivos citados acima, exitem os arquivos `gdb_debug_win.asm` e `switch_win.asm` compatíveis com a plataforma Windows.
+
+- Para compilar o arquivo de debug, usar ``` make debug -f makefile.win ```
+- Para compilar o arquivo do switch, usar ``` make -f makefile.win ```
+- Para remover os arquivos gerados pela compilação, use o comando `make clean -f makefile.win`.
+
 ## Instalando o GDB
 Para instalar o GDB em distribuições Debian/Ubuntu:
 ```
@@ -62,14 +79,4 @@ x/4b &so_memeto_emencrenca  # ou &0x2000
 ### Encerrar o GDB
 Por fim, para terminar a execução do debugger, use o comando `quit` ou `q`.
 Para mais detalhes do funcionamento do debugger GDB, consulte o [manual do programa](http://www.gnu.org/software/gdb/documentation/) `man gdb` e utilize o comando `help` durante a execução.
-
-## Compilando os arquivos
-Existem dois arquivos na pasta `src`: um para visualizar o funcionamento do gdb, chamado de `gdb_debug.asm` e outro para testar o switch, chamado de `switch.asm`.
-
-- Para compilar o arquivo de debug, usar ``` make debug ```
-- Para compilar o arquivo do switch, usar ``` make ```
-- Para remover os arquivos gerados pela compilação, use o comando `make clean`.
-
-Depois, basta rodar o executável com `./run`.
-
 
