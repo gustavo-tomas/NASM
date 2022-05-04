@@ -1,19 +1,7 @@
-NASM=nasm
-DEBUGF=-g
-TARGET=switch_win
-RUN=run
-DEBUG=gdb_debug_win
-BUILD=./build
-SRC=./src
-
 make:
-	mkdir -p $(BUILD)
-	$(NASM) -f win32 $(SRC)/$(TARGET).asm -o $(BUILD)/$(TARGET).o && gcc -o $(RUN) $(BUILD)/$(TARGET).o
+	mkdir build 
+	nasm -f win32 src/switch_win.asm -o build/switch_win.o && gcc -o run build/switch_win.o
 
 debug:
-	mkdir -p $(BUILD)
-	$(NASM) $(DEBUGF) -f win32 $(SRC)/$(DEBUG).asm -o $(BUILD)/$(DEGUB).o && gcc -o $(RUN) $(BUILD)/$(DEGUB).o
-
-clean:
-	rm -rf $(BUILD)
-	rm -f $(RUN)
+	mkdir build
+	nasm -g -f win32 src/gdb_debug_win.asm -o build/gdb_debug_win.o && gcc -o run build/gdb_debug_win.o
